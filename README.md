@@ -16,7 +16,7 @@ La clase `Game` instancia los valores por defecto de tus partidas que podrás ca
 
 | Parámetro | Descripción | Por defecto
 | - | - | - |
-| `options` | Las opciones por defecto del juego | `GameData`
+| `options` | Las opciones por defecto del juego | `DefaultGameData`
 
 | Propiedades de `options` | Descripción | Por defecto
 | - | - | - |
@@ -32,6 +32,33 @@ La clase `Game` instancia los valores por defecto de tus partidas que podrás ca
 
 | Propiedades de `RulesData` | Descripción | Por defecto
 | - | - | - |
+| `maxGames` | El máximo de juegos simultáneos que se pueden hacer | `undefined`
+| `maxMovements` | El máximo de movimientos que puede un jugador hacer | `3`
 | `maxPlayers` | El máximo de jugadores que pueden acceder a la partida | `BoardData.maxPlayers`
+
+## Métodos
+La clase cuenta con funciones para crear tus juegos de forma más sencilla y ver y activar propiedades.
+
+### `initGame(options)`
+El inicializador de cualquier partida
+
+Por construir
+
+| Parámetro | Descripción | Por defecto
+| - | - | - |
+| options | Las opciones por defecto del juego | `GameData`
+
+### `getGames()`
+Obtén todos los juegos actuales. Si no está activada la propiedad `DefaultGameData.registerGames`, aparecerá un objeto con un contador de las partidas activas y más estadísticas.
+
+
+### `registerGames(boolean)`
+Activa y desactiva el registro de juegos. Próximamente opciones de registro
+
+| Parámetro | Descripción | Por defecto
+| - | - | - |
+| boolean | Un boleano con para habilitar o deshabilitar los registros | `undefined`
+
+<hr>
 
 Si quieres leer más sobre las propiedades de solo lectura, puedes leer [aquí](https://github.com/167BOT/tictactoejs)

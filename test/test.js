@@ -9,6 +9,8 @@ const myGame = new Game({
     },
 });
 
+myGame.registerGames()
+
 myGame.initGame({
     board: {anc: 5, alt: 5},
     records: 'things',
