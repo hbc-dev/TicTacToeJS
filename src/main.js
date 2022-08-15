@@ -1,7 +1,16 @@
+// # FUNCTIONS
 const resolveBoard = require('./functions/resolveBoard.js')
 const resolveRecords = require('./functions/resolveRecords.js')
 const resolveRules = require('./functions/resolveRules.js')
+const resolveGameOptions = require('./functions/resolveGameOptions.js')
+
+// # METHODS
 const initGame = require('./methods/initGame.js');
+
+// # STRUCTURES
+const GameEvents  = require(`./structures/GameEvents.js`)
+
+// # UTILS
 const gameError = require('./utils/gameError.js');
 
 let gameOptions = {
@@ -46,11 +55,12 @@ class Game {
   /**
    * Init a game with options
    * @param {Object} options The game options
+   * @param {Array<number>} options.players The players id
    * @param {Object<string, number>|string} options.board The board dimesions
    * @param {string|Array<string>} options.records The users records to play
    * @param {Object} options.rules The rules for the games
    *
-   * @param {boolean|string} options.rules.maxMovements The max of movements
+   * @param {number} options.rules.maxMovements The max of movements
    * @param {number} options.rules.maxGames The max of games per instance
    * @param {number} options.rules.maxPlayers The max of players that can enter in game
    *
@@ -62,8 +72,10 @@ class Game {
       throw new gameError(
         `Se esperaba un objeto y se ha obtenido ${typeof options}.`
       );
-
-    initGame(this, options);
+    
+    let resolvedOptions = resolveGameOptions(this, options);
+    
+    return initGame(resolvedOptions)
   }
 
   /**

@@ -16,5 +16,8 @@
   "types": "types/main.d.ts",
   "devDependencies": {
     "@types/node": "^18.6.3"
+  },
+  "dependencies": {
+    "tresenraya": "^0.0.7"
   }
 }

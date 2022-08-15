@@ -9,12 +9,10 @@ const myGame = new Game({
     },
 });
 
-myGame.registerGames()
+myGame.registerGames(true)
 
-myGame.initGame({
-    board: {anc: 5, alt: 5},
-    records: 'things',
-    rules: {
-        maxMovements: 3,
-    },
-})
+let initializedGame = myGame.initGame({
+    players: [1, 2]
+});
+
+initializedGame.emit("prepare");
