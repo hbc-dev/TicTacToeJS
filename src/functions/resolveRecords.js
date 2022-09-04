@@ -9,9 +9,14 @@ let prebuiltRecords = {
 };
 
 /**
+ * All records prubuild
+ * @typedef {"default"|"hearts"|"people"|"things"|"tools"|"weapons"} RecordsTypes
+ */
+
+/**
  * Para poder seleccionar las fichas y resolverlas
  * @function resolveRecords
- * @param {string|Array<string>} records Las fichas
+ * @param {RecordsTypes|Array<string>} records Las fichas
  * @returns {object} Las propiedades de las fichas
  */
 module.exports = (records) => {

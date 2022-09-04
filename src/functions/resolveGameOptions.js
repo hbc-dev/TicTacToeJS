@@ -3,7 +3,7 @@ const resolveRecords = require("../functions/resolveRecords.js");
 const resolveRules = require("../functions/resolveRules.js");
 const resolvePlayers = require("./resolvePlayers.js");
 
-/**board.maxPlayers <= rules.maxPlayers ? board.maxPlayers : rules.maxPlayers
+/**
  * Init a new game with individual options
  * @param {Object} options The individual options
  */

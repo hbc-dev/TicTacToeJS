@@ -21,6 +21,25 @@ let gameOptions = {
 }
 
 /**
+ * All records prubuild
+ * @typedef {"default"|"hearts"|"people"|"things"|"tools"|"weapons"} RecordsTypes
+ */
+
+/**
+ * @typedef {"default"|"3x3"|"4x4"} boardStringTypes
+ * @typedef {Object} boardObjectTypes
+ * @property {number} anc The width of the board
+ * @property {number} alt The height of the board
+ */
+
+/**
+ * @typedef {Object} RulesTypes
+ * @property {number} maxMovements The max of movements per player
+ * @property {number} maxGames The max of games per instance
+ * @property {number} maxPlayers The max of players that can enter in game
+ */
+
+/**
  * The game initializer
  */
 class Game {
@@ -29,17 +48,10 @@ class Game {
 
   /**
    * @param {Object} options The game options
-   * @param {Object<string, number>|string} options.defaultBoard The default board dimesions
-   * @param {string|Array<string>} options.defaultRecords The default users records to play
+   * @param {boardObjectTypes|boardStringTypes} options.defaultBoard The default board dimesions
+   * @param {RecordsTypes|Array<string>} options.defaultRecords The default users records to play
+   * @param {RulesTypes} options.defaultRules The default rules for all games
    * @param {boolean} options.registerGames Register games with id
-   * @param {Object} options.defaultRules The default rules for all games
-   *
-   * @param {number} options.defaultRules.maxMovements The max of movements per player
-   * @param {number} options.defaultRules.maxGames The max of games per instance
-   * @param {number} options.defaultRules.maxPlayers The max of players that can enter in game
-   *
-   * @param {number} options.defaultBoard.anc The width of the board
-   * @param {number} options.defaultBoard.alt The height of the board
    */
   constructor(options = {}) {
     let { defaultBoard, defaultRecords, registerGames, defaultRules } =
@@ -56,31 +68,26 @@ class Game {
    * Init a game with options
    * @param {Object} options The game options
    * @param {Array<number>} options.players The players id
-   * @param {Object<string, number>|string} options.board The board dimesions
-   * @param {string|Array<string>} options.records The users records to play
-   * @param {Object} options.rules The rules for the games
-   *
-   * @param {number} options.rules.maxMovements The max of movements
-   * @param {number} options.rules.maxGames The max of games per instance
-   * @param {number} options.rules.maxPlayers The max of players that can enter in game
-   *
-   * @param {number} options.board.anc The width of the board
-   * @param {number} options.board.alt The height of the board
+   * @param {boardObjectTypes|boardStringTypes} options.board The board dimesions
+   * @param {RulesTypes} options.rules The rules for the games
+   * @param {RecordsTypes|Array<string>} options.records The users records to play
    */
   initGame(options = {}) {
     if (typeof options !== "object" || Array.isArray(options))
       throw new gameError(
         `Se esperaba un objeto y se ha obtenido ${typeof options}.`
       );
-    
+
     let resolvedOptions = resolveGameOptions(this, options);
-    
-    return initGame(resolvedOptions)
+
+    return initGame(resolvedOptions);
   }
 
   /**
    * Get a Map with all games
-   * @returns {Map|string}
+   * @typedef {Object} RegisterCount
+   * @property {number} startedGames The started games
+   * @returns {Map|RegisterCount}
    */
   getGames() {
     return this.#games;
