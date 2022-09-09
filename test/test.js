@@ -1,4 +1,5 @@
-const {Game} = require('../src/main.js')
+const EventEmitter = require('events');
+const {Game} = require('../src/main')
 
 const myGame = new Game({
     defaultRecords: 'people',
@@ -13,5 +14,3 @@ let initializedGame = myGame.initGame({
     board: 'default',
     records: 'people'
 });
-
-initializedGame.on()

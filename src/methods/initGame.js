@@ -1,10 +1,6 @@
-const GameEvents = require('../structures/GameEvents.js')
+const GameEvents = require('../structures/GameEvents')
 
-/**
- * Init a new game with individual options
- * @param {Object} options The individual options
- */
-module.exports = (options) => {
+function initGame(options) {
   let {
     players,
     board,
@@ -14,3 +10,5 @@ module.exports = (options) => {
 
   return new GameEvents();
 }
+
+module.exports = initGame;
