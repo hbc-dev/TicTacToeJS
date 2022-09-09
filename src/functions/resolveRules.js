@@ -14,7 +14,8 @@ module.exports = (rules) => {
     let {
         maxMovements,
         maxPlayers,
-        maxGames
+        maxGames,
+        destroyPlayers,
     } = rules
 
     if (maxMovements) {
@@ -47,9 +48,16 @@ module.exports = (rules) => {
         )
     }
 
+    if (destroyPlayers) {
+        if (typeof destroyPlayers !== 'boolean') throw new gameError(
+            `El parámetro "destroyPlayers" ha recibido un valor que no es boleano`
+        )
+    }
+
     return {
         maxMovements,
         maxGames,
-        maxPlayers
+        maxPlayers,
+        destroyPlayers,
     }
 }

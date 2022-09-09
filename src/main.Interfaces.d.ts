@@ -34,6 +34,10 @@ type RulesTypes = {
      * The max of players that can enter in game
      */
     maxPlayers: number;
+    /**
+     * Destroy the players after the game ends
+     */
+    destroyPlayers: boolean;
 }
 
 /**

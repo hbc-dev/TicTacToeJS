@@ -1,17 +1,18 @@
 import {EventEmitter} from "node:events";
 import GameEvents from "./structures/GameEvents"
+import Player from "./structures/Player.js";
 import {
     privateGame,
     GameOptionsDefault,
     GameOptions
 } from './main.Interfaces'
 
-/**
- * The game initializer
- */
 export class Game extends EventEmitter {
     #games: privateGame;
 
+    /**
+     * The game initializer
+     */
     constructor(options: GameOptionsDefault)
 
     /**
@@ -29,3 +30,5 @@ export class Game extends EventEmitter {
      */
     registerGames(boolean: boolean): void;
 }
+
+export {Player};

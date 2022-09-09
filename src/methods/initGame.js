@@ -1,4 +1,5 @@
 const GameEvents = require('../structures/GameEvents')
+const mixPlayers = require('../functions/mixPlayers')
 
 function initGame(options) {
   let {
@@ -8,7 +9,8 @@ function initGame(options) {
     rules,
   } = options
 
-  return new GameEvents();
+  const turns = mixPlayers(players);
+  console.log(turns)
 }
 
 module.exports = initGame;

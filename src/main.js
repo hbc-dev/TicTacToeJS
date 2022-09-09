@@ -7,6 +7,9 @@ const resolveGameOptions = require('./functions/resolveGameOptions.js')
 // # METHODS
 const initGame = require('./methods/initGame');
 
+// # STRUCTURES
+const Player = require('./structures/Player.js');
+
 // # UTILS
 const gameError = require('./utils/gameError.js');
 
@@ -56,4 +59,7 @@ class Game {
   }
 }
 
-module.exports = {Game};
+module.exports = {
+  Game,
+  Player
+};

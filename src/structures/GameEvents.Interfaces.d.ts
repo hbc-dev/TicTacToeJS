@@ -7,6 +7,10 @@ export interface events {
      * Emitted when the battle is in preparation
      */
     prepare: () => void;
+    /**
+     * Emitted when a player leaves the match
+     */
+    playerLeave: () => void;
 }
 
 export interface eventsOptions {
@@ -18,4 +22,8 @@ export interface eventsOptions {
      * Emitted when the battle is in preparation
      */
     prepare: [];
+    /**
+     * Emitted when a player leaves the match
+     */
+    playerLeave: [];
 }
